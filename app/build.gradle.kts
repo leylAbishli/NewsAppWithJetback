@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id ("kotlin-kapt")
+    id ("com.google.dagger.hilt.android")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -66,4 +69,44 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    //Splash Api
+    implementation ("androidx.core:core-splashscreen:1.0.1")
+
+    //Compose Navigation
+    val nav_version = "2.6.0"
+    implementation( libs.androidx.navigation.compose)
+
+    //Dagger Hilt
+    implementation ("com.google.dagger:hilt-android:2.50")
+    kapt ("com.google.dagger:hilt-compiler:2.50")
+    implementation ("androidx.hilt:hilt-navigation-compose:1.2.0")
+
+
+    //Retrofit
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+
+    //Coil
+    implementation("io.coil-kt:coil-compose:2.6.0")
+
+    //Datastore
+    implementation ("androidx.datastore:datastore-preferences:1.1.1")
+
+    //Compose Foundation
+    implementation ("androidx.compose.foundation:foundation:1.7.2")
+
+    //Accompanist
+    implementation( libs.accompanist.systemuicontroller)
+
+    //Paging 3
+    val paging_version = "3.1.1"
+    implementation (libs.androidx.paging.runtime.ktx)
+    implementation (libs.androidx.paging.compose)
+
+    //Room
+    val room_version = "2.5.2"
+    implementation( libs.androidx.room.runtime)
+    kapt ("androidx.room:room-compiler:2.6.1")
+    implementation( "androidx.room:room-ktx:2.6.1")
 }
